@@ -1,42 +1,34 @@
-# NodeJS ASK Alexa Device Address API Integration Sample Project
+# Device Address API Integration Sample Project
+<img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/header._TTH_.png" />
 
-The Alexa Skills Kit now allows developers to build skills that can retrieve a user's address via the new Alexa Device Address API.
-## How to Run the Sample
+[![Voice User Interface](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-off._TTH_.png)](https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/1-voice-user-interface.md)[![Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png)](https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/2-lambda-function.md)[![Connect VUI to Code](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png)](https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/3-connect-vui-to-code.md)[![Testing](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png)](https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/4-testing.md)
 
-1. Clone the project and package the skill:
-```bash
-git clone git@github.com:alexa/skill-sample-node-device-address-api.git
-cd skill-sample-node-device-address-api
-npm install
-```
-2. Create or login to an [AWS account](https://aws.amazon.com/). In the AWS Console:
+<!--<a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/2-lambda-function.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/3-connect-vui-to-code.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/4-testing.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/5-customization.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/6-publication.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png" /></a>-->
 
-    1. Create an AWS Role in IAM with access to Lambda, CloudWatch Logs and DynamoDB.
-        ![create_role_1](https://cloud.githubusercontent.com/assets/7671574/17451098/09f64f40-5b19-11e6-82ee-b82c98387052.png "AWS Create Role Screenshot 1")
-        ![create_role_2](https://cloud.githubusercontent.com/assets/7671574/17451100/0c3ef928-5b19-11e6-9aca-8cd353106396.png "AWS Create Role Screenshot 2")
-        ![create_role_3](https://cloud.githubusercontent.com/assets/7671574/18011103/7b05f2b2-6b68-11e6-8dc3-3aa9ead6d83e.png "AWS Create Role Screenshot 3")
+## What You Will Learn
+*  [AWS Lambda](http://aws.amazon.com/lambda)
+*  [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit)
+*  Device Address API
 
-    2. Create an AWS Lambda function named DeviceAddressLambdaFunction being sure to select the role created above, configuring "Alexa Skills Kit" as the "Trigger" and using the zip file created above as the source.
-        ![alt text](https://s3.amazonaws.com/lantern-public-assets/audio-player-assets/aws-lambda-role.PNG "AWS Lambda Role")
-        ![alt text](https://s3.amazonaws.com/lantern-public-assets/audio-player-assets/aws-lambda-ask-trigger.PNG "AWS Lambda Trigger")
-    3. After creation, take note of the ARN on the upper right, which you'll configure in the Developer Console below.
+## What You Will Need
+*  [Amazon Developer Portal Account](http://developer.amazon.com)
+*  [Amazon Web Services Account](http://aws.amazon.com/)
+*  The sample code on [GitHub](https://github.com/alexa/skill-sample-node-device-address-api).
 
-3. Create or login to an [Amazon Developer account](https://developer.amazon.com).  In the Developer Console:
+## What Your Skill Will Do
+The new Device Address API enables skills to request and access the configured address in the customer’s device settings. This means you can build skills with the context to understand the customers who use the skill, then use the data to customize the voice experience. Your skill, for example, can deliver food and groceries to a customer’s home or provide directions to a nearby gym. You can also see where your most active users are. Check out our documentation to learn more.
 
-    1. [Create an Alexa Skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-lambda-function) named MySkill and using the invocation name "my skill".
-    2. Copy the contents of `speechAssets/intentSchema.json` and `speechAssets/Utterances.txt` into the intent schema and sample utterances fields on the Interaction Model tab.
-        ![alt text](https://s3.amazonaws.com/lantern-public-assets/permissions-assets/intentSchema.png "Developer Portal Interaction Model")
-        ![alt text](https://s3.amazonaws.com/lantern-public-assets/permissions-assets/utterances.png "Developer Portal Interaction Model")
-    3. Specify that you'll need permissions for access to the user's address. For the scope of this sample skill, you'll want the full address.
-        ![alt text](https://s3.amazonaws.com/lantern-public-assets/permissions-assets/permissions.png "Developer Portal Configuration")
+When a user enables a skill with the Alexa app that wants to use location data, the user will be prompted to provide consent for location data to be made available. There are two levels of location data you can request:
 
-4. Edit the src/index.js file. You'll want to make APP_ID equal the Application Id for your skill.
 
-5. Compress your skill's source code into a single archive:
-```
-zip -r packagedSkill.zip *
-```
+Full address, which includes street address, city, state, zip, and country
+Country and postal code only
+When a user enables a skill that wants to use this location data, the user will be prompted in the Alexa app to consent to the location data being shared with the skill. It is important to note that when a user enables a skill via voice, the user will not be prompted for this information and the default choice will be "none." In this case, you can use cards to prompt the user to provide consent using the Alexa app.
 
-6. Upload the packagedSkill.zip from earlier to your Lambda function via the Code tab on the AWS Lambda Console.
+### Register For Office Hours
+Join us on April 11 at 1PM PT for a live webinar to discuss the location API or any other skill building questions. [Sign up now](https://attendee.gotowebinar.com/rt/8389200425172113931)!
 
-7. You can start using the skill on your device or in the simulator using the invocation phrase "Alexa, ask my skill what's my address".
+
+<a href="https://github.com/alexa/skill-sample-node-device-address-api/blob/master/step-by-step/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
+
+<img height="1" width="1" src="https://www.facebook.com/tr?id=1847448698846169&ev=PageView&noscript=1"/>
