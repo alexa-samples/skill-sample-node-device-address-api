@@ -1,0 +1,30 @@
+{
+  "skillManifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "A sample skill to learn the Device Address API.",
+          "examplePhrases": [
+            "Alexa open device address skill",
+            "Alexa ask device address where am i",
+            "Alexa ask device address whats my location"
+          ],
+          "name": "Device Address",
+          "description": "Create a skill to access your device's address."
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
