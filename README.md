@@ -23,9 +23,6 @@ Full address, which includes street address, city, state, zip, and country
 Country and postal code only
 When a user enables a skill that wants to use this location data, the user will be prompted in the Alexa app to consent to the location data being shared with the skill. It is important to note that when a user enables a skill via voice, the user will not be prompted for this information and the default choice will be "none." In this case, you can use cards to prompt the user to provide consent using the Alexa app.
 
-### Register For Office Hours
-Join us on April 11 at 1PM PT for a live webinar to discuss the location API or any other skill building questions. [Sign up now](https://attendee.gotowebinar.com/rt/8389200425172113931)!
-
 
 <a href="./instructions/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
 
