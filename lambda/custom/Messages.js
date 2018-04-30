@@ -4,7 +4,7 @@
  * This file contains a map of messages used by the skill.
  */
 
-const WELCOME = "Welcome to the Sample Device Address API Skill!";
+const WELCOME = "Welcome to the Sample Device Address API Skill!  You can ask for the device address by saying what is my address.  ";
 
 const WHAT_DO_YOU_WANT = "What do you want to ask?";
 
