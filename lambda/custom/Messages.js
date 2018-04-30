@@ -24,7 +24,7 @@ const UNHANDLED = "This skill doesn't support that. Please ask something else.";
 
 const HELP = "You can use this skill by asking something like: whats my address?";
 
-const STOP = "There is nothing to stop. Did you mean to ask something else?";
+const STOP = "Bye! Thanks for using the Sample Device Address API Skill!";
 
 module.exports = {
     "WELCOME": WELCOME,

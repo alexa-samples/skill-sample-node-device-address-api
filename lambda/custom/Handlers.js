@@ -156,7 +156,7 @@ const amazonCancelHandler = function() {
  */
 const amazonStopHandler = function() {
     console.info("Starting amazonStopHandler()");
-    this.emit(":ask", Messages.STOP, Messages.STOP);
+    this.emit(":tell", Messages.STOP);
     console.info("Ending amazonStopHandler()");
 };
 
