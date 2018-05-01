@@ -4,7 +4,7 @@
       "invocationName": "device address",
       "intents": [
         {
-          "intent": "GetAddress",
+          "name": "GetAddressIntent",
           "samples": [
             "where am I located",
             "where do I live",
@@ -15,18 +15,18 @@
           "slots": []
         },
         {
-          "intent": "AMAZON.CancelIntent",
+          "name": "AMAZON.CancelIntent",
           "samples": []
         },
         {
-          "intent": "AMAZON.HelpIntent",
+          "name": "AMAZON.HelpIntent",
           "samples": []
         },
         {
-          "intent": "AMAZON.StopIntent",
+          "name": "AMAZON.StopIntent",
           "samples": []
         }
       ]
     }
-  }  
+  }
 }
