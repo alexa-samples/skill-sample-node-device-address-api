@@ -6,6 +6,6 @@
  * This will make the default lambda value of "index.handler" work.
  */
 
-const MyAlexaSkill = require('./src/index');
+const MyAlexaSkill = require('./lambda/custom/index');
 
 exports.handler = MyAlexaSkill.handler;
