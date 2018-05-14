@@ -12,6 +12,9 @@ const messages = {
   LOCATION_FAILURE: 'There was an error with the Device Address API. Please try again.',
   GOODBYE: 'Bye! Thanks for using the Sample Device Address API Skill!',
   UNHANDLED: 'This skill doesn\'t support that. Please ask something else.',
+  SKILL_NAME = 'Device Address',
+  FALLBACK_MESSAGE = `The ${SKILL_NAME} skill can\'t help you with that.  It can help skills to request and access the configured address in the customer’s device settings if you where am I located. What can I help you with?`,
+  FALLBACK_REPROMPT = 'What can I help you with?',
   HELP: 'You can use this skill by asking something like: whats my address?',
   STOP: 'Bye! Thanks for using the Sample Device Address API Skill!',
 };
@@ -152,6 +155,22 @@ const GetAddressError = {
   },
 };
 
+const FallbackHandler = {
+  // 2018-May-01: AMAZON.FallackIntent is only currently available in en-US locale.
+  //              This handler will not be triggered except in that locale, so it can be
+  //              safely deployed for any locale.
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === 'IntentRequest'
+      && request.intent.name === 'AMAZON.FallbackIntent';
+  },
+  handle(handlerInput) {
+    return handlerInput.responseBuilder
+      .speak(messages.FALLBACK_MESSAGE)
+      .reprompt(messages.FALLBACK_REPROMPT)
+      .getResponse();
+  },
+};
 
 const skillBuilder = Alexa.SkillBuilders.custom();
 
@@ -163,6 +182,7 @@ exports.handler = skillBuilder
     HelpIntent,
     CancelIntent,
     StopIntent,
+    FallbackHandler,
     UnhandledIntent,
   )
   .addErrorHandlers(GetAddressError)
