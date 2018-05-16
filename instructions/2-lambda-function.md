@@ -35,7 +35,7 @@ In the [first step of this guide](https://github.com/alexa/skill-sample-node-dev
 
     <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/2-7-configure-your-function._TTH_.png" />
 
-8.  **Upload the [provided code](https://github.com/alexa/skill-sample-node-device-address-api/blob/master/src/)** We have provided the code for this skill on [GitHub](https://github.com/alexa/skill-sample-node-device-address-api/blob/master/src/index.js).  
+8.  **Upload the [provided code](https://github.com/alexa/skill-sample-node-device-address-api/tree/master/lambda/custom)** We have provided the code for this skill on [GitHub](https://github.com/alexa/skill-sample-node-device-address-api/tree/master/lambda/custom/index.js).  
 8.1 From the Code entry type box, choose "Upload a .ZIP file"
 8.2 Clone the project and package the skill
     ```bash
