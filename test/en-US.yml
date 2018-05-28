@@ -1,0 +1,34 @@
+#=====================================================================================================================
+#  ██████╗ ███████╗███████╗██████╗  ██████╗ ██╗  ██╗███████╗███╗   ██╗
+#  ██╔══██╗██╔════╝██╔════╝██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝████╗  ██║
+#  ██████╔╝█████╗  ███████╗██████╔╝██║   ██║█████╔╝ █████╗  ██╔██╗ ██║
+#  ██╔══██╗██╔══╝  ╚════██║██╔═══╝ ██║   ██║██╔═██╗ ██╔══╝  ██║╚██╗██║
+#  ██████╔╝███████╗███████║██║     ╚██████╔╝██║  ██╗███████╗██║ ╚████║
+#  ╚═════╝ ╚══════╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝
+#
+# Test type: Functional/End-to-End/Regression
+# Skill name: "Device Address API Integration Sample Project" by Amazon
+# Test scope: LaunchRequest, GetAddressIntent, AMAZON.HelpIntent, AMAZON.StopIntent, AMAZON.CancelIntent
+#=====================================================================================================================
+---
+configuration:
+  locale: en-US
+  address:
+    streetAddress1: Lincoln Blvd
+    city: San Francisco
+    countryCode: US
+    postalCode: 94129
+    stateOrRegion: CA
+
+#---
+#- test: "Sequence 01. Test scenario: Launch request, no further interaction."
+#- LaunchRequest:
+#  - response.outputSpeech.ssml: "/welcome to the sample device address api skill.*/i"
+#  - response.reprompt.outputSpeech.ssml: "What do you want to ask?"
+#  - response.shouldEndSession: "false"
+
+---
+- test: "Sequence 02. Test scenario: Ask for address with GetAddressIntent (full address provided)."
+- LaunchRequest: "*"
+- "whats my address":
+  - response.outputSpeech.ssml: "Here is your full address: Lincoln Blvd, CA, 94129"
