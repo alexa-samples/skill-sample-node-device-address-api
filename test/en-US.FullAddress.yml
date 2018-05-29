@@ -40,16 +40,8 @@ configuration:
 - "whats my address":
   - response.outputSpeech.ssml: "Here is your full address: Lincoln Blvd, CA, 94129"
 
-#--- # TEST THIS COMMENTING THE address CONFIG VALUE
-#- test: "Sequence 03. Test scenario: Ask for address with GetAddressIntent (no address provided)."
-#- LaunchRequest: "*"
-#- "whats my address":
-#  - response.outputSpeech.ssml: "Please enable Location permissions in the Amazon Alexa app."
-#  - response.card.type: "AskForPermissionsConsent"
-#  - response.card.permissions[0]: "read::alexa:device:all:address"
-
 ---
-- test: "Sequence 04. Test scenario: Launch request, AMAZON.HelpIntent and AMAZON.CancelIntent."
+- test: "Sequence 03. Test scenario: Launch request, AMAZON.HelpIntent and AMAZON.CancelIntent."
 - LaunchRequest: "*"
 - help:
   - response.outputSpeech.ssml: "You can use this skill by asking something like: whats my address?"

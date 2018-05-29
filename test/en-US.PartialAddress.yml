@@ -1,0 +1,25 @@
+#=====================================================================================================================
+#  ██████╗ ███████╗███████╗██████╗  ██████╗ ██╗  ██╗███████╗███╗   ██╗
+#  ██╔══██╗██╔════╝██╔════╝██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝████╗  ██║
+#  ██████╔╝█████╗  ███████╗██████╔╝██║   ██║█████╔╝ █████╗  ██╔██╗ ██║
+#  ██╔══██╗██╔══╝  ╚════██║██╔═══╝ ██║   ██║██╔═██╗ ██╔══╝  ██║╚██╗██║
+#  ██████╔╝███████╗███████║██║     ╚██████╔╝██║  ██╗███████╗██║ ╚████║
+#  ╚═════╝ ╚══════╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝
+#
+# Test type: Functional/End-to-End/Regression
+# Skill name: "Device Address API Integration Sample Project" by Amazon
+# Test scope: GetAddressIntent
+#=====================================================================================================================
+
+---
+configuration:
+  locale: en-US
+  address:
+    countryCode: US
+    postalCode: 94129
+
+---
+- test: "Sequence 01. Test scenario: Ask for address with GetAddressIntent (partial address provided)."
+- LaunchRequest: "*"
+- "whats my address":
+  - response.outputSpeech.ssml: "It looks like you don't have an address set. You can set your address from the companion app."
