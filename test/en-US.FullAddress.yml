@@ -1,19 +1,14 @@
 #=====================================================================================================================
-#  ██████╗ ███████╗███████╗██████╗  ██████╗ ██╗  ██╗███████╗███╗   ██╗
-#  ██╔══██╗██╔════╝██╔════╝██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝████╗  ██║
-#  ██████╔╝█████╗  ███████╗██████╔╝██║   ██║█████╔╝ █████╗  ██╔██╗ ██║
-#  ██╔══██╗██╔══╝  ╚════██║██╔═══╝ ██║   ██║██╔═██╗ ██╔══╝  ██║╚██╗██║
-#  ██████╔╝███████╗███████║██║     ╚██████╔╝██║  ██╗███████╗██║ ╚████║
-#  ╚═════╝ ╚══════╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝
+#     ______    _ ____  ______        __  _
+#    / __/ /__ (_) / / /_  __/__ ___ / /_(_)__  ___ _
+#   _\ \/  '_// / / /   / / / -_|_-</ __/ / _ \/ _ `/
+#  /___/_/\_\/_/_/_/   /_/  \__/___/\__/_/_//_/\_, /
+#                                             /___/
 #
-# Test type: Functional/End-to-End/Regression
+# Test type: Unit/Functional/End-to-End/Regression
 # Skill name: "Device Address API Integration Sample Project" by Amazon
 # Test scope: LaunchRequest, GetAddressIntent, AMAZON.HelpIntent, AMAZON.StopIntent, AMAZON.CancelIntent
 #=====================================================================================================================
-
-#Use these to test all possible values within address:
-#      const ADDRESS_MESSAGE = `${messages.ADDRESS_AVAILABLE}, addressL1=${address.addressLine1}, city=${address.city}, country=${address.countryCode}, region=${address.stateOrRegion}, zip=${address.postalCode}`;
-#      response = responseBuilder.speak(ADDRESS_MESSAGE).getResponse();
 
 ---
 configuration:
@@ -27,8 +22,8 @@ configuration:
 
 ---
 - test: "Sequence 01. Test scenario: Launch request, no further interaction and AMAZON.StopIntent."
-- LaunchRequest:
-  - response.outputSpeech.ssml: "/welcome to the sample device address api skill.*/i"
+- LaunchRequest: # LaunchRequest is not an utterance but a request type and "reserved" word
+  - response.outputSpeech.ssml: "/welcome to the sample device address api skill.*/i" # Regular expression
   - response.reprompt.outputSpeech.ssml: "What do you want to ask?"
   - response.shouldEndSession: "false"
 - stop:
@@ -36,7 +31,7 @@ configuration:
 
 ---
 - test: "Sequence 02. Test scenario: Ask for address with GetAddressIntent (full address provided)."
-- LaunchRequest: "*"
+- LaunchRequest: "*" # * means anything in the actual response is fine
 - "whats my address":
   - response.outputSpeech.ssml: "Here is your full address: Lincoln Blvd, CA, 94129"
 
