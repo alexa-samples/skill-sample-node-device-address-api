@@ -44,3 +44,9 @@ configuration:
   - response.shouldEndSession: "false"
 - cancel:
   - response.outputSpeech.ssml: "Bye! Thanks for using the Sample Device Address API Skill!"
+
+---
+- test: "Sequence 04. Test scenario: Launch request, AMAZON.HelpIntent and SessionEndedRequest."
+- LaunchRequest: "*"
+- help: "*"
+- exit:
