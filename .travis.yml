@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "8"
+cache:
+  directories:
+  - lambda/custom/node_modules
+install:
+  - npm install bespoken-tools@alpha -g
+  - npm install codecov -g
+  - cd lambda/custom && npm install && cd ../..
+script:
+ - bst test
+ - codecov
