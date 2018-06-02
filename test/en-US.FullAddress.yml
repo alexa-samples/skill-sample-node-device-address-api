@@ -5,9 +5,12 @@
 #  /___/_/\_\/_/_/_/   /_/  \__/___/\__/_/_//_/\_, /
 #                                             /___/
 #
-# Test type: Unit/Functional/End-to-End/Regression
+# Created by Bespoken
+# Learn more at https://read.bespoken.io/unit-testing/getting-started/
+#
 # Skill name: "Device Address API Integration Sample Project" by Amazon
 # Test scope: LaunchRequest, GetAddressIntent, AMAZON.HelpIntent, AMAZON.StopIntent, AMAZON.CancelIntent
+# Description: General test for all intents, with mocked address being returned
 #=====================================================================================================================
 
 ---
@@ -44,3 +47,9 @@ configuration:
   - response.shouldEndSession: "false"
 - cancel:
   - response.outputSpeech.ssml: "Bye! Thanks for using the Sample Device Address API Skill!"
+
+---
+- test: "Sequence 04. Test scenario: Launch request, AMAZON.HelpIntent and SessionEndedRequest."
+- LaunchRequest: "*"
+- help: "*"
+- exit:

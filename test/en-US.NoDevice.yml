@@ -10,12 +10,11 @@
 #
 # Skill name: "Device Address API Integration Sample Project" by Amazon
 # Test scope: GetAddressIntent
-# Description: Test when a device ID is set, but no address is returned (for whatever reason)
+# Description: Test when no device ID is set - causes permission error
 #=====================================================================================================================
 
 ---
 configuration:
-  deviceId: mockDeviceID
   locale: en-US
 
 ---
