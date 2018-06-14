@@ -1,0 +1,27 @@
+#=====================================================================================================================
+#     ______    _ ____  ______        __  _
+#    / __/ /__ (_) / / /_  __/__ ___ / /_(_)__  ___ _
+#   _\ \/  '_// / / /   / / / -_|_-</ __/ / _ \/ _ `/
+#  /___/_/\_\/_/_/_/   /_/  \__/___/\__/_/_//_/\_, /
+#                                             /___/
+#
+# Created by Bespoken
+# Learn more at https://read.bespoken.io/unit-testing/getting-started/
+#
+# Skill name: "Device Address API Integration Sample Project" by Amazon
+# Test scope: GetAddressIntent
+# Description: Test when a device ID is set, but no address is returned (for whatever reason)
+#=====================================================================================================================
+
+---
+configuration:
+  deviceId: mockDeviceID
+  locale: en-US
+
+---
+- test: "Sequence 01. Test scenario: Ask for address with GetAddressIntent (no address provided)."
+- LaunchRequest: "*"
+- "whats my address":
+  - response.outputSpeech.ssml: "Please enable Location permissions in the Amazon Alexa app."
+  - response.card.type: "AskForPermissionsConsent"
+  - response.card.permissions[0]: "read::alexa:device:all:address"

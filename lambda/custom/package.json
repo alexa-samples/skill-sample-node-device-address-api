@@ -17,8 +17,8 @@
     "ask-sdk-core": "^2.0.0",
     "ask-sdk-model": "^1.0.0"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : ""
+  "repository": {
+    "type": "git",
+    "url": ""
   }
 }

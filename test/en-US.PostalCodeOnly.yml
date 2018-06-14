@@ -1,0 +1,29 @@
+#=====================================================================================================================
+#     ______    _ ____  ______        __  _
+#    / __/ /__ (_) / / /_  __/__ ___ / /_(_)__  ___ _
+#   _\ \/  '_// / / /   / / / -_|_-</ __/ / _ \/ _ `/
+#  /___/_/\_\/_/_/_/   /_/  \__/___/\__/_/_//_/\_, /
+#                                             /___/
+#
+# Created by Bespoken
+# Learn more at https://read.bespoken.io/unit-testing/getting-started/
+#
+# Skill name: "Device Address API Integration Sample Project" by Amazon
+# Test scope: LaunchRequest, GetAddressIntent, AMAZON.HelpIntent, AMAZON.StopIntent, AMAZON.CancelIntent
+# Description: General test for all intents, with mocked address being returned
+#=====================================================================================================================
+
+---
+configuration:
+  locale: en-US
+  address:
+    addressLine1: null
+    countryCode: US
+    postalCode: 94129
+    stateOrRegion: null
+
+---
+- test: "Sequence 01. Test scenario: Ask for address with GetAddressIntent (only country code provided)."
+- LaunchRequest: "*"
+- "whats my address":
+  - response.outputSpeech.ssml: "It looks like you don't have an address set. You can set your address from the companion app."
