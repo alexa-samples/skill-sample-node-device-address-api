@@ -15,20 +15,20 @@
 
 ---
 configuration:
-  locale: en-US
   address:
     addressLine1: Lincoln Blvd
     city: San Francisco
     countryCode: US
     postalCode: 94129
     stateOrRegion: CA
+  locale: en-US
 
 ---
 - test: "Sequence 01. Test scenario: Launch request, no further interaction and AMAZON.StopIntent."
 - LaunchRequest: # LaunchRequest is not an utterance but a request type and "reserved" word
   - response.outputSpeech.ssml: "/welcome to the sample device address api skill.*/i" # Regular expression
   - response.reprompt.outputSpeech.ssml: "What do you want to ask?"
-  - response.shouldEndSession: "false"
+  - response.shouldEndSession: false
 - stop:
   - response.outputSpeech.ssml: "Bye! Thanks for using the Sample Device Address API Skill!"
 
