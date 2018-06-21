@@ -1,9 +1,9 @@
 {
   "handler": "lambda/custom/index.js",
   "locale": "en-US",
-  "trace": "false",
+  "trace": false,
   "jest": {
-    "silent": true,
+    "silent": false,
     "collectCoverageFrom": [
       "lambda/custom/index.js"
     ]
