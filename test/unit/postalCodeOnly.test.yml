@@ -10,17 +10,19 @@
 #
 # Skill name: "Device Address API Integration Sample Project" by Amazon
 # Test scope: GetAddressIntent
-# Description: Test when no device ID is set - causes permission error
+# Description: Test when no address is set
 #=====================================================================================================================
 
 ---
 configuration:
   locale: en-US
+  address:
+    addressLine1: null
+    countryCode: US
+    postalCode: 94129
+    stateOrRegion: null
 
 ---
-- test: "Sequence 01. Test scenario: Ask for address with GetAddressIntent (no address provided)."
-- LaunchRequest: "*"
-- "whats my address":
-  - response.outputSpeech.ssml: "Please enable Location permissions in the Amazon Alexa app."
-  - response.card.type: "AskForPermissionsConsent"
-  - response.card.permissions[0]: "read::alexa:device:all:address"
+- test: Ask for address with GetAddressIntent (only country code provided).
+- LaunchRequest
+- GetAddressIntent: It looks like you don't have an address set. You can set your address from the companion app.
