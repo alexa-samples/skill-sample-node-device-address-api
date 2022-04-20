@@ -19,8 +19,9 @@ The new Device Address API enables skills to request and access the configured a
 When a user enables a skill with the Alexa app that wants to use location data, the user will be prompted to provide consent for location data to be made available. There are two levels of location data you can request:
 
 
-Full address, which includes street address, city, state, zip, and country
-Country and postal code only
+- Full address, which includes street address, city, state, zip, and country
+- Country and postal code only
+
 When a user enables a skill that wants to use this location data, the user will be prompted in the Alexa app to consent to the location data being shared with the skill. It is important to note that when a user enables a skill via voice, the user will not be prompted for this information and the default choice will be "none." In this case, you can use cards to prompt the user to provide consent using the Alexa app.
 
 
