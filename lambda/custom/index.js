@@ -2,6 +2,10 @@
 
 const Alexa = require('ask-sdk-core');
 
+const SKILL_NAME = 'Device Address';
+const FALLBACK_MESSAGE = `The ${SKILL_NAME} skill can\'t help you with that.  It can help skills to request and access the configured address in the customer’s device settings if you where am I located. What can I help you with?`;
+const FALLBACK_REPROMPT = 'What can I help you with?';
+
 const messages = {
   WELCOME: 'Welcome to the Sample Device Address API Skill!  You can ask for the device address by saying what is my address.  What do you want to ask?',
   WHAT_DO_YOU_WANT: 'What do you want to ask?',
@@ -152,6 +156,22 @@ const GetAddressError = {
   },
 };
 
+const FallbackHandler = {
+  // 2018-May-01: AMAZON.FallackIntent is only currently available in en-US locale.
+  //              This handler will not be triggered except in that locale, so it can be
+  //              safely deployed for any locale.
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === 'IntentRequest'
+      && request.intent.name === 'AMAZON.FallbackIntent';
+  },
+  handle(handlerInput) {
+    return handlerInput.responseBuilder
+      .speak(FALLBACK_MESSAGE)
+      .reprompt(FALLBACK_REPROMPT)
+      .getResponse();
+  },
+};
 
 const skillBuilder = Alexa.SkillBuilders.custom();
 
@@ -163,6 +183,7 @@ exports.handler = skillBuilder
     HelpIntent,
     CancelIntent,
     StopIntent,
+    FallbackHandler,
     UnhandledIntent,
   )
   .addErrorHandlers(GetAddressError)
